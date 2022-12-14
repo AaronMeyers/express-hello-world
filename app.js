@@ -1,8 +1,17 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3001;
+const ytdl = require('ytdl-core');
 
 app.get("/", (req, res) => res.type('html').send(html));
+
+app.get( '/yt', (req, res ) => {
+
+	var ytUrl = 'https://youtube.com/watch?v=' + req.query.id;
+	res.header( "Content-Disposition", 'attachment; filename="Video.mp4"');
+	ytdl( ytUrl, {format: 'mp4'}).pipe( res );
+  // res.send( 'hi ' + ytUrl );
+})
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 

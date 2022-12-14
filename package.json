@@ -11,7 +11,8 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "ytdl-core": "^4.11.2"
   },
   "engines": {
     "node": ">=14"
